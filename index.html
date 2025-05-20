@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,6 +45,23 @@
     }
     #errorMsg {
       color:#ff4d4d; margin-top:10px; display:none;
+    }
+    /* Contact for Login button */
+    .contact-btn {
+      display: block;
+      margin: 15px auto 0;
+      padding: 8px 12px;
+      background: transparent;
+      border: 2px solid #00ff00;
+      border-radius: 5px;
+      color: #00ff00;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+      text-align: center;
+    }
+    .contact-btn:hover {
+      background: rgba(0, 255, 0, 0.1);
     }
     /* --- DASHBOARD --- */
     #dashboard { display:none; height:100%; flex-direction:column; }
@@ -101,21 +117,17 @@
     }
   </style>
 </head>
-<body>
-
-  <!-- LOGIN OVERLAY -->
-  <div id="loginOverlay">
+<body>  <!-- LOGIN OVERLAY -->  <div id="loginOverlay">
     <div id="loginBox">
       <h2>Login</h2>
       <input type="text" id="username" placeholder="Username" required>
       <input type="password" id="password" placeholder="Password" required>
       <button id="loginBtn">Unlock</button>
       <div id="errorMsg">Invalid username or password!</div>
+      <!-- Contact for Login button -->
+      <a href="https://wa.me/923367027845" target="_blank" class="contact-btn">Contact for Login</a>
     </div>
-  </div>
-
-  <!-- DASHBOARD CONTENT -->
-  <div id="dashboard">
+  </div>  <!-- DASHBOARD CONTENT -->  <div id="dashboard">
     <header>
       <img class="profile-img" src="https://i.ibb.co/cXLG1Fhd/In-Shot-20250518-095405767-3.jpg" alt="Profile">
       Everything is possible
@@ -124,7 +136,7 @@
     <hr>
     <div class="content-container">
       <a href="https://Quran.com" target="_blank" class="btn">Read Quran</a><br>
-    <a href="https://paksimdatabse.com" target="_blank" class="btn">Sim details</a><br>
+          <a href="https://paksimdatabse.com" target="_blank" class="btn">Sim details</a><br>
     <a href="https://www.mediafire.com/file/i6dghyxuotugvml/Tiktok+For+You+Trick.pdf/file" target="_blank" class="btn">TikTok For You Trick</a><br>
     <a class="btn" href="https://youtu.be/L5Mi1bONwjE?si=dRjkUQFSrn5IdyXA" target="_blank">Unlimited fake WhatsApp numbers</a><br>
     <a class="btn" href="https://www.mediafire.com/file/f8shun6xzcnmy7k/WA_Number_Hide_By_AbheeBhai.zip/file" target="_blank">Whatsapp hide method</a><br>
@@ -213,6 +225,7 @@
   </div>
 <br>
 <br>
+    </div>
     <div class="bottom-bar">
       <a href="./home" class="bottom-btn">
         <img src="https://img.icons8.com/ios-filled/50/00ff00/home.png" alt="Home">
@@ -227,9 +240,7 @@
         <span>WhatsApp</span>
       </a>
     </div>
-  </div>
-
-  <script>
+  </div>  <script>
     const correctUser = "Everything is possible";
     const correctPass = "@Best4You!2025";
     const overlay = document.getElementById('loginOverlay');
@@ -246,6 +257,5 @@
         errMsg.style.display   = 'block';
       }
     });
-  </script>
-</body>
+  </script></body>
 </html>
